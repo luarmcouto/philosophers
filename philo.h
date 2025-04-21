@@ -6,7 +6,7 @@
 /*   By: luarodri <luarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 18:37:56 by luarodri          #+#    #+#             */
-/*   Updated: 2025/04/20 20:36:17 by luarodri         ###   ########.fr       */
+/*   Updated: 2025/04/21 21:37:27 by luarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ typedef struct s_philos
 	size_t			time_sleep;
 	size_t			last_meal;
 	pthread_t		thread;
-	pthread_mutex_t	*mealtex;
-	pthread_mutex_t	*eatentex;
+	pthread_mutex_t	*meal_mutex;
+	pthread_mutex_t	*eaten_mutex;
 	struct s_table	*table;
 }				t_philos;
 
@@ -47,8 +47,8 @@ typedef struct s_table
 	unsigned long	time;
 	pthread_t		table;
 	pthread_mutex_t	mutex;
-	pthread_mutex_t	*deadtex;
-	pthread_mutex_t	*eatentex;
+	pthread_mutex_t	*dead_mutex;
+	pthread_mutex_t	*eaten_mutex;
 	pthread_mutex_t	*forks;
 	t_philos		*philos;
 }				t_table;
@@ -60,5 +60,13 @@ int		ft_atoi(char *str);
 int		ft_is_not_numeric(char *str);
 
 
+/* initialization.c */
+void	initialize_table(t_philos *philosophers, t_table *table, char **av);
+void	initialize_all_philosophers(t_table *table, t_philos *philosophers, char **av);
+void	initialize_philosopher_data(t_philos *philosopher, char **av);
+
+/* time_utils.c */
+int		sleep_for_ms(size_t milliseconds);
+size_t	get_current_time(void);
 
 #endif
