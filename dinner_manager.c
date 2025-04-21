@@ -6,7 +6,7 @@
 /*   By: luarodri <luarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 22:14:25 by luarodri          #+#    #+#             */
-/*   Updated: 2025/04/21 23:35:02 by luarodri         ###   ########.fr       */
+/*   Updated: 2025/04/22 00:11:10 by luarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void philosopher_lifecycle(void *arg)
 
     while (!check_philosopher_state(philosopher))
     {
-        eat_action();//TODO
-        sleep_action();//TODO
+        eat_action(philosopher);
+        sleep_action(philosopher);
         think_action();//TODO
     }
     return (arg);
