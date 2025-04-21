@@ -6,11 +6,20 @@
 /*   By: luarodri <luarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 22:48:46 by luarodri          #+#    #+#             */
-/*   Updated: 2025/04/21 23:26:55 by luarodri         ###   ########.fr       */
+/*   Updated: 2025/04/22 00:07:18 by luarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+int	check_philosopher_state(t_philos *philosopher)
+{
+	pthread_mutex_lock(philosopher->table->dead_mutex);
+	if (*philosopher->dead)
+		return (pthread_mutex_unlock(philosopher->table->dead_mutex), 1);
+	pthread_mutex_unlock(philosopher->table->dead_mutex);
+	return (0);
+}
 
 int	is_philosopher_starved(t_philos *philosopher)
 {
