@@ -6,7 +6,7 @@
 /*   By: luarodri <luarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 18:37:56 by luarodri          #+#    #+#             */
-/*   Updated: 2025/04/21 23:35:38 by luarodri         ###   ########.fr       */
+/*   Updated: 2025/04/22 00:07:19 by luarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void	start_dinner_simulation(t_table *table);
 void 	philosopher_lifecycle(void *arg);
 
 /* philosopher_monitor.c */
+int	check_philosopher_state(t_philos *philosopher);
 int		is_philosopher_starved(t_philos *philosopher);
 int		check_for_dead_philosophers(t_philos *philosophers);
 int		check_all_philosophers_ate(t_philos *philosophers);
