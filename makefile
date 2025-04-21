@@ -14,6 +14,9 @@ SOURCES			=	validation_utils.c \
 					main.c \
 					initialization.c \
 					time_utils.c \
+					dinner_manager.c \
+					philosopher_monitor.c \
+					
 
 OBJECTS			= $(SOURCES:.c=.o)
 
