@@ -6,7 +6,7 @@
 /*   By: luarodri <luarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 18:37:56 by luarodri          #+#    #+#             */
-/*   Updated: 2025/04/21 22:23:26 by luarodri         ###   ########.fr       */
+/*   Updated: 2025/04/21 23:27:39 by luarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,11 @@ size_t	get_current_time(void);
 
 /* dinner_manager.c */
 void	start_dinner_simulation(t_table *table);
+
+/* philosopher_monitor.c */
+int		is_philosopher_starved(t_philos *philosopher);
+int		check_for_dead_philosophers(t_philos *philosophers);
+int		check_all_philosophers_ate(t_philos *philosophers);
+void	*monitor_philosophers(void *arg);
 
 #endif
