@@ -6,7 +6,7 @@
 /*   By: luarodri <luarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 18:41:09 by luarodri          #+#    #+#             */
-/*   Updated: 2025/04/21 21:38:53 by luarodri         ###   ########.fr       */
+/*   Updated: 2025/04/21 21:51:03 by luarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int ac, char **av)
 	if (validate_arguments(ac, av))
 		return (1);
 	initialize_table(philosophers, &table, av);
-	//initialize_all_philosophers();//TODO
+	initialize_all_philosophers(&table, philosophers, av);
 	//start_dinner_simulation();//TODO
 	//cleanup_simulation();//TODO
 	return (0);
