@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosopher_monitor.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luarodri <luarodri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luamonteiro <luamonteiro@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 22:48:46 by luarodri          #+#    #+#             */
-/*   Updated: 2025/04/22 00:07:18 by luarodri         ###   ########.fr       */
+/*   Updated: 2025/04/24 15:24:16 by luamonteiro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

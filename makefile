@@ -16,6 +16,8 @@ SOURCES			=	validation_utils.c \
 					time_utils.c \
 					dinner_manager.c \
 					philosopher_monitor.c \
+					philosopher_action.c \
+					philosopher_utils.c \
 					
 
 OBJECTS			= $(SOURCES:.c=.o)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luarodri <luarodri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luamonteiro <luamonteiro@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 18:41:09 by luarodri          #+#    #+#             */
-/*   Updated: 2025/04/21 22:28:28 by luarodri         ###   ########.fr       */
+/*   Updated: 2025/04/24 15:22:55 by luamonteiro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int ac, char **av)
 		return (1);
 	initialize_table(philosophers, &table, av);
 	initialize_all_philosophers(&table, philosophers, av);
-	start_dinner_simulation(&table);//TODO
-	//cleanup_simulation();//TODO
+	start_dinner_simulation(&table);
+	cleanup_simulation(&table, philosophers, av);
 	return (0);
 }

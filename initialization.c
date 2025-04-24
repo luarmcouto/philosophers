@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialization.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luarodri <luarodri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luamonteiro <luamonteiro@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 18:28:28 by luarodri          #+#    #+#             */
-/*   Updated: 2025/04/21 21:25:49 by luarodri         ###   ########.fr       */
+/*   Updated: 2025/04/24 15:21:39 by luamonteiro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

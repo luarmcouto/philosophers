@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luarodri <luarodri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luamonteiro <luamonteiro@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 20:11:59 by luarodri          #+#    #+#             */
-/*   Updated: 2025/04/20 20:43:11 by luarodri         ###   ########.fr       */
+/*   Updated: 2025/04/24 15:25:03 by luamonteiro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

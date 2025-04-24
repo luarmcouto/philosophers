@@ -3,34 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   dinner_manager.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luarodri <luarodri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luamonteiro <luamonteiro@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 22:14:25 by luarodri          #+#    #+#             */
-/*   Updated: 2025/04/22 00:11:10 by luarodri         ###   ########.fr       */
+/*   Updated: 2025/04/24 15:22:28 by luamonteiro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-void philosopher_lifecycle(void *arg)
-{
-
-    t_philos *philosopher;
-
-    philosopher = (t_philos *)arg;
-
-    if (philosopher->id % 2 == 0)
-
-    sleep_for_ms(1);
-
-    while (!check_philosopher_state(philosopher))
-    {
-        eat_action(philosopher);
-        sleep_action(philosopher);
-        think_action();//TODO
-    }
-    return (arg);
-}
 
 void	start_dinner_simulation(t_table *table)
 {
@@ -43,7 +23,7 @@ void	start_dinner_simulation(t_table *table)
 	while (i < table->philos->num_philos)
 	{
 		if (pthread_create(&table->philos[i].thread, NULL,
-				philosopher_lifecycle/*TODO*/, &table->philos[i]) != 0)
+				philosopher_lifecycle, &table->philos[i]) != 0)
 			write(2, "Failed to create thread\n", 22);
 		i++;
 	}
@@ -54,4 +34,26 @@ void	start_dinner_simulation(t_table *table)
 		i++;
 	}
 	pthread_join(table->table, NULL);
+}
+void	cleanup_simulation(t_table *table, t_philos *philos, char **av)
+{
+	size_t	i;
+
+	i = 0;
+	(void) av;
+	pthread_mutex_destroy(&table->mutex);
+	pthread_mutex_destroy(table->dead_mutex);
+	free(table->dead_mutex);
+	pthread_mutex_destroy(table->eaten_mutex);
+	free(table->eaten_mutex);
+	while (i < table->philos->num_philos)
+	{
+		pthread_mutex_destroy(philos[i].meal_mutex);
+		free(philos[i].meal_mutex);
+		pthread_mutex_destroy(philos[i].eaten_mutex);
+		free(philos[i].eaten_mutex);
+		pthread_mutex_destroy(&table->forks[i]);
+		i++;
+	}
+	free(table->forks);
 }

@@ -3,15 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   philosopher_action.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luarodri <luarodri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luamonteiro <luamonteiro@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 00:02:26 by luarodri          #+#    #+#             */
-/*   Updated: 2025/04/22 00:10:06 by luarodri         ###   ########.fr       */
+/*   Updated: 2025/04/24 15:23:53 by luamonteiro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+void *philosopher_lifecycle(void *arg)
+{
+
+    t_philos *philosopher;
+
+    philosopher = (t_philos *)arg;
+
+    if (philosopher->id % 2 == 0)
+
+    sleep_for_ms(1);
+
+    while (!check_philosopher_state(philosopher))
+    {
+        eat_action(philosopher);
+        sleep_action(philosopher);
+        think_action(philosopher);
+    }
+    return (arg);
+}
 void	eat_action(t_philos *philosopher)
 {
 	pthread_mutex_t	*next_fork;
@@ -25,7 +44,10 @@ void	eat_action(t_philos *philosopher)
 		own_fork = &philosopher->table->forks[(philosopher->id) % philosopher->num_philos];
 	}
 	pthread_mutex_lock(own_fork);
+	log_philosopher_action(philosopher, "has taken a fork");
 	pthread_mutex_lock(next_fork);
+	log_philosopher_action(philosopher, "has taken a fork");
+	log_philosopher_action(philosopher, "is eating");
 	pthread_mutex_lock(philosopher->meal_mutex);
 	philosopher->last_meal = get_current_time();
 	pthread_mutex_lock(philosopher->table->eaten_mutex);
@@ -39,7 +61,11 @@ void	eat_action(t_philos *philosopher)
 
 void	sleep_action(t_philos *philosopher)
 {
+	log_philosopher_action(philosopher, "is sleeping");
 	sleep_for_ms(philosopher->time_sleep);
 }
 
-void	think_action(t_philos *philosopher);//TODO
+void	think_action(t_philos *philosopher)
+{
+	log_philosopher_action(philosopher, "is thinking");
+}

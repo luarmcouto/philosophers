@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luarodri <luarodri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luamonteiro <luamonteiro@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 18:37:56 by luarodri          #+#    #+#             */
-/*   Updated: 2025/04/22 00:07:19 by luarodri         ###   ########.fr       */
+/*   Updated: 2025/04/24 15:23:22 by luamonteiro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,22 +59,33 @@ size_t	ft_strlen(char *str);
 int		ft_atoi(char *str);
 int		ft_is_not_numeric(char *str);
 
-
-/* initialization.c */
-void	initialize_table(t_philos *philosophers, t_table *table, char **av);
-void	initialize_all_philosophers(t_table *table, t_philos *philosophers, char **av);
-void	initialize_philosopher_data(t_philos *philosopher, char **av);
-
 /* time_utils.c */
 int		sleep_for_ms(size_t milliseconds);
 size_t	get_current_time(void);
 
 /* dinner_manager.c */
 void	start_dinner_simulation(t_table *table);
-void 	philosopher_lifecycle(void *arg);
+void	cleanup_simulation(t_table *table, t_philos *philos, char **av);
+
+/* initialization.c */
+void	initialize_philosopher_data(t_philos *philosopher, char **av);
+void	initialize_all_philosophers(t_table *table, t_philos *philosophers, char **av);
+void	initialize_table(t_philos *philosophers, t_table *table, char **av);
+
+/* philosopher_actions.c */
+void	*philosopher_lifecycle(void *arg);
+void	eat_action(t_philos *philosopher);
+void	sleep_action(t_philos *philosopher);
+void	think_action(t_philos *philosopher);
+
+/* philosopher_utils.c */
+int		handle_single_philosopher(t_philos *philosopher);
+int		ft_strcmp(char *s1, char *s2);
+void	print_philosophers_debug(t_philos *philosopher);
+void	log_philosopher_action(t_philos *philosopher, char *message);
 
 /* philosopher_monitor.c */
-int	check_philosopher_state(t_philos *philosopher);
+int		check_philosopher_state(t_philos *philosopher);
 int		is_philosopher_starved(t_philos *philosopher);
 int		check_for_dead_philosophers(t_philos *philosophers);
 int		check_all_philosophers_ate(t_philos *philosophers);
