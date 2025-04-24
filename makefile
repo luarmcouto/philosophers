@@ -50,7 +50,7 @@ $(NAME): $(OBJECTS) $(HEADER)
 		@echo "╚═╝      ╚═╝  ╚═╝ ╚═╝ ╚═════╝  ╚════╝  ╚═════╝    ╚════╝   ╚═╝      ╚═╝  ╚═╝ ╚═════╝ ╚═══╚══╝ ╚═════╝"
 		@sleep 0.1
 		@echo
-		@echo "                                    	  ℹ️ $(RED) DONE 🍽️.$(RESET)"
+		@echo "                                    ⏱️ $(BLUE) READY TO EAT 🍕.$(RESET)"
 		@echo
 
 
@@ -60,7 +60,10 @@ clean:
 	@clear 
 	@echo 
 	@echo "$(RED)CLEANED$(RESET)"
-	@echo
+	@echo 
+	@sleep 0.5
+	@clear
+
 
 fclean: clean
 	@$(RM) $(NAME)
