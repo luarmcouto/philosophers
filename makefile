@@ -38,7 +38,7 @@ RM = rm -f
 
 CFLAGS = -Wall -Wextra -Werror -g -I$(INC_DIR)
 
-$(shell mkdir -p $(SRC_DIR) $(INC_DIR) $(OBJ_DIR) $(BIN_DIR))
+$(shell mkdir -p $(OBJ_DIR) $(BIN_DIR))
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADER)
 	@$(CC) $(CFLAGS) -c $< -o $@
@@ -77,6 +77,7 @@ clean:
 fclean: clean
 	@$(RM) $(NAME)
 
-re: fclean all
+re: fclean	all
+	
 
 .PHONY: all clean fclean re
