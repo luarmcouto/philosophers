@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dinner_manager.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luamonteiro <luamonteiro@student.42.fr>    +#+  +:+       +#+        */
+/*   By: luarodri <luarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 22:14:25 by luarodri          #+#    #+#             */
-/*   Updated: 2025/04/24 15:22:28 by luamonteiro      ###   ########.fr       */
+/*   Updated: 2025/05/04 18:33:25 by luarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	start_dinner_simulation(t_table *table)
 
 	i = 0;
 	table->time = get_current_time();
-	if (pthread_create(&table->table, NULL, monitor_philosophers, table->philos) != 0)
+	if (pthread_create(&table->table, NULL,
+			monitor_philosophers, table->philos) != 0)
 		write(2, "Failed to create thread\n", 22);
 	while (i < table->philos->num_philos)
 	{
@@ -35,6 +36,7 @@ void	start_dinner_simulation(t_table *table)
 	}
 	pthread_join(table->table, NULL);
 }
+
 void	cleanup_simulation(t_table *table, t_philos *philos, char **av)
 {
 	size_t	i;

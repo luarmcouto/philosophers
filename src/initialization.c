@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   initialization.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luamonteiro <luamonteiro@student.42.fr>    +#+  +:+       +#+        */
+/*   By: luarodri <luarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 18:28:28 by luarodri          #+#    #+#             */
-/*   Updated: 2025/04/24 15:21:39 by luamonteiro      ###   ########.fr       */
+/*   Updated: 2025/05/04 18:37:44 by luarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	initialize_all_philosophers(t_table *table, t_philos *philosophers, char **av)
+void	initialize_all_philosophers(t_table *table,
+			t_philos *philosophers, char **av)
 {
 	size_t	i;
 
@@ -25,6 +26,7 @@ void	initialize_all_philosophers(t_table *table, t_philos *philosophers, char **
 		i++;
 	}
 }
+
 void	initialize_philosopher_data(t_philos *philosopher, char **av)
 {
 	philosopher->sleep = 0;
@@ -34,8 +36,10 @@ void	initialize_philosopher_data(t_philos *philosopher, char **av)
 	philosopher->time_eat = ft_atoi(av[3]);
 	philosopher->time_sleep = ft_atoi(av[4]);
 	philosopher->dead = &philosopher->table->dead_flag;
-	philosopher->meal_mutex = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t));
-	philosopher->eaten_mutex = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t));
+	philosopher->meal_mutex = (pthread_mutex_t *)
+		malloc(sizeof(pthread_mutex_t));
+	philosopher->eaten_mutex = (pthread_mutex_t *)
+		malloc(sizeof(pthread_mutex_t));
 	pthread_mutex_init(philosopher->meal_mutex, NULL);
 	pthread_mutex_init(philosopher->eaten_mutex, NULL);
 	philosopher->last_meal = get_current_time();

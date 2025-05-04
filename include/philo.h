@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luamonteiro <luamonteiro@student.42.fr>    +#+  +:+       +#+        */
+/*   By: luarodri <luarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 18:37:56 by luarodri          #+#    #+#             */
-/*   Updated: 2025/04/24 15:23:22 by luamonteiro      ###   ########.fr       */
+/*   Updated: 2025/05/04 20:15:57 by luarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_philos
 
 typedef struct s_table
 {
-    int				dead_flag;
+	int				dead_flag;
 	int				num_of_meals;
 	unsigned long	time;
 	pthread_t		table;
@@ -69,7 +69,8 @@ void	cleanup_simulation(t_table *table, t_philos *philos, char **av);
 
 /* initialization.c */
 void	initialize_philosopher_data(t_philos *philosopher, char **av);
-void	initialize_all_philosophers(t_table *table, t_philos *philosophers, char **av);
+void	initialize_all_philosophers(t_table *table,
+			t_philos *philosophers, char **av);
 void	initialize_table(t_philos *philosophers, t_table *table, char **av);
 
 /* philosopher_actions.c */
@@ -77,12 +78,15 @@ void	*philosopher_lifecycle(void *arg);
 void	eat_action(t_philos *philosopher);
 void	sleep_action(t_philos *philosopher);
 void	think_action(t_philos *philosopher);
+void	lock_forks(t_philos *philo, pthread_mutex_t *own,
+			pthread_mutex_t *next);
+void	unlock_forks(pthread_mutex_t *own, pthread_mutex_t *next);
 
 /* philosopher_utils.c */
 int		handle_single_philosopher(t_philos *philosopher);
 int		ft_strcmp(char *s1, char *s2);
 void	print_philosophers_debug(t_philos *philosopher);
-void	log_philosopher_action(t_philos *philosopher, char *message);
+void	log_philosopher_action(t_philos *philo, char *message);
 
 /* philosopher_monitor.c */
 int		check_philosopher_state(t_philos *philosopher);

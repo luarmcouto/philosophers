@@ -20,7 +20,9 @@ SRC_FILES = $(SRC_DIR)/validation_utils.c \
 			$(SRC_DIR)/dinner_manager.c \
 			$(SRC_DIR)/philosopher_monitor.c \
 			$(SRC_DIR)/philosopher_action.c \
-			$(SRC_DIR)/philosopher_utils.c
+			$(SRC_DIR)/philosopher_utils.c \
+			$(SRC_DIR)/forks_mutex.c
+
 
 OBJECTS = $(OBJ_DIR)/validation_utils.o \
 		  $(OBJ_DIR)/main.o \
@@ -29,7 +31,8 @@ OBJECTS = $(OBJ_DIR)/validation_utils.o \
 		  $(OBJ_DIR)/dinner_manager.o \
 		  $(OBJ_DIR)/philosopher_monitor.o \
 		  $(OBJ_DIR)/philosopher_action.o \
-		  $(OBJ_DIR)/philosopher_utils.o
+		  $(OBJ_DIR)/philosopher_utils.o \
+		  $(OBJ_DIR)/forks_mutex.o
 
 NAME = $(BIN_DIR)/philo
 
@@ -63,6 +66,11 @@ $(NAME): $(OBJECTS)
 	@sleep 0.1
 	@echo
 	@echo "                                    ⏱️ $(BLUE) READY TO EAT 🍕.$(RESET)"
+	@echo
+	@echo
+	@echo
+	@echo "				$(PURPLE)Try: ./bin/philo 5 500 600 800 $(RESET)"
+	@echo
 	@echo
 
 clean:

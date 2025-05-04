@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosopher_monitor.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luamonteiro <luamonteiro@student.42.fr>    +#+  +:+       +#+        */
+/*   By: luarodri <luarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 22:48:46 by luarodri          #+#    #+#             */
-/*   Updated: 2025/04/24 15:24:16 by luamonteiro      ###   ########.fr       */
+/*   Updated: 2025/05/04 19:36:15 by luarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ void	*monitor_philosophers(void *arg)
 
 	philosophers = (t_philos *)arg;
 	while (1)
-		if (check_for_dead_philosophers(philosophers) || 
-            check_all_philosophers_ate(philosophers))
+		if (check_for_dead_philosophers(philosophers)
+			|| check_all_philosophers_ate(philosophers))
 			break ;
 	return (arg);
 }
