@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosopher_action.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luarodri <luarodri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luamonteiro <luamonteiro@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 00:02:26 by luarodri          #+#    #+#             */
-/*   Updated: 2025/05/04 20:22:55 by luarodri         ###   ########.fr       */
+/*   Updated: 2025/05/06 18:51:22 by luamonteiro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	*philosopher_lifecycle(void *arg)
 	t_philos	*philosopher;
 
 	philosopher = (t_philos *)arg;
+	if (philosopher->num_philos == 1)
+		return (handle_single_philosopher(philosopher), arg);
 	if (philosopher->id % 2 == 0)
 		sleep_for_ms(1);
 	while (!check_philosopher_state(philosopher))

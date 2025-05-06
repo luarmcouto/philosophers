@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luarodri <luarodri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luamonteiro <luamonteiro@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 20:11:59 by luarodri          #+#    #+#             */
-/*   Updated: 2025/05/04 20:27:15 by luarodri         ###   ########.fr       */
+/*   Updated: 2025/05/06 18:49:21 by luamonteiro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,6 @@ int	validate_arguments(int ac, char **av)
 		return (printf(BOLD_RED"Invalid eat_times! 🍝\n"
 				"How many times should they eat? Not THAT number! 🍴\n"DEFAULT));
 	return (0);
-}
-
-size_t	ft_strlen(char *str)
-{
-	size_t	length;
-
-	length = 0;
-	if (!str)
-		return (-1);
-	while (str[length])
-		length++;
-	return (length);
 }
 
 int	ft_atoi(char *str)
