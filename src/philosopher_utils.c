@@ -58,7 +58,7 @@ void	log_philosopher_action(t_philos *philo, char *message)
 		else if (ft_strcmp(message, "is eating") == 0)
 			printf(BOLD"%i "BLUE"%12s %9s\n"DEFAULT, philo->id, message, "🥘");
 		else if (ft_strcmp(message, "is sleeping") == 0)
-			printf(BOLD"%i "GRAY"%13s %8s\n"DEFAULT, philo->id, message, "💤");
+			printf(BOLD"%i "RED"%13s %8s\n"DEFAULT, philo->id, message, "💤");
 		else if (ft_strcmp(message, "is thinking") == 0)
 			printf(BOLD"%i "CYAN"%13s %8s\n"DEFAULT, philo->id, message, "🤔");
 		else if (ft_strcmp(message, "died") == 0)

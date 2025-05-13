@@ -39,7 +39,7 @@ NAME = $(BIN_DIR)/philo
 CC = cc
 RM = rm -f
 
-CFLAGS = -Wall -Wextra -Werror -g -I$(INC_DIR)
+CFLAGS = -Wall -Wextra -Werror -pthread -I$(INC_DIR)
 
 $(shell mkdir -p $(OBJ_DIR) $(BIN_DIR))
 
@@ -49,7 +49,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADER)
 all:	$(NAME)
 
 $(NAME): $(OBJECTS)
-	@$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME) 
 	@clear
 	@echo "$(BLUE)"
 	@echo "██████╗  ██╗  ██╗ ██╗ ██╗      ██████╗   ██████╗  ██████╗  ██████╗  ██╗  ██╗ ██████╗ ██████╗  ██████╗"

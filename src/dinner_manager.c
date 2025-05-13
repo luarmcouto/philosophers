@@ -6,7 +6,7 @@
 /*   By: luarodri <luarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 22:14:25 by luarodri          #+#    #+#             */
-/*   Updated: 2025/05/04 18:33:25 by luarodri         ###   ########.fr       */
+/*   Updated: 2025/05/13 09:30:48 by luarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,6 @@ void	cleanup_simulation(t_table *table, t_philos *philos, char **av)
 	{
 		pthread_mutex_destroy(philos[i].meal_mutex);
 		free(philos[i].meal_mutex);
-		pthread_mutex_destroy(philos[i].eaten_mutex);
-		free(philos[i].eaten_mutex);
 		pthread_mutex_destroy(&table->forks[i]);
 		i++;
 	}

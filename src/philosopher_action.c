@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosopher_action.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luamonteiro <luamonteiro@student.42.fr>    +#+  +:+       +#+        */
+/*   By: luarodri <luarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 00:02:26 by luarodri          #+#    #+#             */
-/*   Updated: 2025/05/06 18:51:22 by luamonteiro      ###   ########.fr       */
+/*   Updated: 2025/05/13 09:32:59 by luarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

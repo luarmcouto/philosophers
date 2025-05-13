@@ -6,7 +6,7 @@
 /*   By: luarodri <luarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 18:37:56 by luarodri          #+#    #+#             */
-/*   Updated: 2025/05/04 20:15:57 by luarodri         ###   ########.fr       */
+/*   Updated: 2025/05/13 09:30:47 by luarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@
 typedef struct s_philos
 {
 	int				id;
-	int				sleep;
 	int				eaten;
 	int				*dead;
 	size_t			num_philos;
@@ -36,7 +35,6 @@ typedef struct s_philos
 	size_t			last_meal;
 	pthread_t		thread;
 	pthread_mutex_t	*meal_mutex;
-	pthread_mutex_t	*eaten_mutex;
 	struct s_table	*table;
 }				t_philos;
 
